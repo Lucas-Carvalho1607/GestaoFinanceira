@@ -9,7 +9,7 @@ public abstract class Pessoa{
     Endereco endereco;
 
     
-    public Pessoa(String nome, String cpf, String dataNasc, Endereco endereco) {
+    public Pessoa(String nome, String cpf, String dataNasc, String endereco2) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
