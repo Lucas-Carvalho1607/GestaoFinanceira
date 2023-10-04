@@ -2,11 +2,14 @@ package Menus;
 
 import java.util.Scanner;
 
+import org.springframework.boot.autoconfigure.session.SessionAutoConfiguration;
+
 public class Menu_Gerente {
-    public static void main(String[] args) {
+    public  Menu_Gerente () {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("     ");
             System.out.println("===================================");
             System.out.println("          MENU GERENTE");
             System.out.println("===================================");
@@ -19,8 +22,11 @@ public class Menu_Gerente {
             System.out.println("7 - Sair:");
 
             System.out.println("Escolha uma opção: ");
-            System.out.print("===================================");
             int escolha = scanner.nextInt();
+
+            System.out.println("         ");
+            System.out.println("      ");
+   
 
             switch (escolha) {
                 case 1:
