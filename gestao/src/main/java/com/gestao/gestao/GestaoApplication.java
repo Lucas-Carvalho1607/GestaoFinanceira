@@ -12,7 +12,7 @@ public class GestaoApplication {
 		SpringApplication.run(GestaoApplication.class, args);
 
 		Menu_Gerente menu = new Menu_Gerente();
-		 
+		
 		
 	}
 

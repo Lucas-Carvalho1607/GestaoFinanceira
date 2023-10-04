@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Gerente extends Funcionario {
 
+
     Scanner leia = new Scanner(System.in);
 
     Endereco enderecoGerente;

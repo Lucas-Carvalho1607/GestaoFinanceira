@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import org.springframework.boot.autoconfigure.session.SessionAutoConfiguration;
 
+import Classes.Interface.Cadastro;
+
 public class Menu_Gerente {
     public  Menu_Gerente () {
         Scanner scanner = new Scanner(System.in);
@@ -30,7 +32,6 @@ public class Menu_Gerente {
 
             switch (escolha) {
                 case 1:
-                    System.out.println();
                     break;
                 case 2:
                     System.out.println();
