@@ -3,6 +3,7 @@ package Classes;
 import Enum.UnidadeFederal;
 
 public class Endereco {
+    
     private String rua;
     private String bairro;
     private String numero;

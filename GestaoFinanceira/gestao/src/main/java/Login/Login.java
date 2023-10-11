@@ -19,41 +19,37 @@ public class Login {
     private String loginDigitado;
     private String senhaDigitada;
 
-    public Login () {
+    public void LoginGeral() {
 
-
-        while(loginDigitado != loginGerente || loginDigitado != loginFuncionario || loginDigitado != loginCliente){
+        while (loginDigitado != loginGerente || loginDigitado != loginFuncionario || loginDigitado != loginCliente) {
             System.out.println("Login ou senha incorretos, tente novamente");
             System.out.println(" ");
 
-        System.out.println("===============================\nMENU LOGIN\n===============================\n");
-        System.out.println("Login: ");
-        loginDigitado = leia.nextLine();
-        System.out.println("Senha: ");
-        senhaDigitada = leia.nextLine();
-    
-    
+            System.out.println("===============================\nMENU LOGIN\n===============================\n");
+            System.out.println("Login: ");
+            loginDigitado = leia.nextLine();
+            System.out.println("Senha: ");
+            senhaDigitada = leia.nextLine();
 
-        if (loginDigitado.equals(loginGerente) && senhaDigitada.equals(senhaGerente)) {
-            System.out.println("Seja bem vindo gerente!!");
+            if (loginDigitado.equals(loginGerente) && senhaDigitada.equals(senhaGerente)) {
+                System.out.println("Seja bem vindo gerente!!");
 
-            Menu_Gerente menuGerente = new Menu_Gerente();
-            menuGerente.exibirMenuGerente();
+                Menu_Gerente menuGerente = new Menu_Gerente();
+                menuGerente.exibirMenuGerente();
 
+            } else if (loginDigitado.equals(loginFuncionario) && senhaDigitada.equals(senhaFuncionario)) {
+                System.out.println("Seja bem vindo funcionário!!");
+                Menu_Funcionario menuFuncionario = new Menu_Funcionario();
+                menuFuncionario.exibirMenuFuncionario();
 
-        } else if (loginDigitado.equals(loginFuncionario) && senhaDigitada.equals(senhaFuncionario)) {
-            System.out.println("Seja bem vindo funcionário!!");
-            Menu_Funcionario menuFuncionario = new Menu_Funcionario();
-            menuFuncionario.exibirMenuFuncionario();
+            } else if (loginDigitado.equals(loginCliente) && senhaDigitada.equals(senhaCliente)) {
+                System.out.println("Seja bem vindo cliente!!");
+                Menu_Cliente menuCliente = new Menu_Cliente();
+                menuCliente.exibirMenuCliente();
 
-        } else if (loginDigitado.equals(loginCliente) && senhaDigitada.equals(senhaCliente)) {
-            System.out.println("Seja bem vindo cliente!!");
-            Menu_Cliente menuCliente = new Menu_Cliente();
-            menuCliente.exibirMenuCliente();
-
-        } else {
-            System.out.println("Acesso negado, login ou senha incorretos!");
+            } else {
+                System.out.println("Acesso negado, login ou senha incorretos!");
+            }
         }
-    }
     }
 }

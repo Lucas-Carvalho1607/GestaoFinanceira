@@ -1,19 +1,16 @@
 package ClassesAbstratas;
 
-import Classes.Endereco;
-
 public abstract class Pessoa{
     private String nome;
     private String cpf;
     private String dataNasc;
-    Endereco endereco;
 
     
-    public Pessoa(String nome, String cpf, String dataNasc, String endereco2) {
+    public Pessoa(String nome, String cpf, String dataNasc) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
-        this.endereco = endereco;
+
        
     }
     public String getNome() {
@@ -33,12 +30,6 @@ public abstract class Pessoa{
     }
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
-    }
-    public Endereco getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
     
     
