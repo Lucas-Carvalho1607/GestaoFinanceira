@@ -23,7 +23,7 @@ public class Login {
     private String loginDigitado;
     private String senhaDigitada;
 
-    Endereco enderecoGerente = new Endereco("Rua dos Salgados ", "aaaaaaaaaa", "2000", "Coxinha", UnidadeFederal.RJ);
+    Endereco enderecoGerente = new Endereco();
     Gerente gerente = new Gerente("Coxinha", "15465156", "20/10/1500", enderecoGerente, "21656466", "(24)99545646",
             Cargo.GERENTE);
 

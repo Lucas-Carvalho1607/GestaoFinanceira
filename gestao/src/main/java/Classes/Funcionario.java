@@ -39,6 +39,10 @@ public class Funcionario extends Pessoa implements Cadastro{
         this.cargo = cargo;
     }
 
+    public double getSalario() {
+        return cargo.getSalario(); 
+    }
+
 
     @Override
     public void cadastro() {

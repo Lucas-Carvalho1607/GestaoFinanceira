@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Classes.Cliente;
 import Classes.Endereco;
-import Enum.UnidadeFederal;
 import Login.Login;
 import Menus.Sub_Menu.Faturamento;
 import Menus.Sub_Menu.MenuEstoque;
@@ -77,17 +76,11 @@ public class Menu_Funcionario {
     }
 
     public void exibirListaCliente() {
-        System.out.println("Lista de Funcionários:");
+        System.out.println("Lista de Cliente:");
         for (Cliente cliente : lista_Cliente) {
             System.out.println("Nome: " + cliente.getNome());
             System.out.println("CPF: " + cliente.getCpf());
-            // System.out.println("Endereço:");
-            // System.out.println("Rua: " + funcionario.getEndereco().getRua());
-            // System.out.println("Bairro: " + funcionario.getEndereco().getBairro());
-            // System.out.println("Número: " + funcionario.getEndereco().getNumero());
-            // System.out.println("Complemento: " +
-            // funcionario.getEndereco().getComplemento());
-            // System.out.println("UF: " + funcionario.getEndereco().getUf());
+            System.out.println("Endereço:"  + cliente.getEndereco());
             System.out.println("Telefone: " + cliente.getTelefone());
             System.out.println("\n");
         }
@@ -95,8 +88,8 @@ public class Menu_Funcionario {
 
     public void cadastrarCliente() {
         String nome, cpf, dataNasc, telefone;
-        Endereco endereco;
         Scanner leia = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Nome Cliente: ");
         nome = leia.nextLine();
@@ -104,54 +97,89 @@ public class Menu_Funcionario {
         cpf = leia.nextLine();
         System.out.println("Data de Nascimento: ");
         dataNasc = leia.nextLine();
-        System.out.println("Endereço:");
-        System.out.println("Digite seu cep: ");
         System.out.println("Telefone: ");
         telefone = leia.nextLine();
 
-        endereco = new Endereco("Rua", "Bairro", "123", "Complemento", UnidadeFederal.SP);
+        System.out.println("Qual seu cep?");
+        String cep = sc.nextLine();
+        
+        Endereco endereco = Endereco.getEnderecoByCep(cep);
+        
+        System.out.println("Rua: " + endereco.getLogradouro());
+        System.out.println("Bairro: " + endereco.getBairro());
+        System.out.println("Cidade: " + endereco.getLocalidade());
+        System.out.println("Estado: " + endereco.getUf());
+        
+        System.out.println("Número: ");
+        String numero = sc.nextLine();
+        endereco.setNumero(numero);
+        
+        System.out.println("Complemento: ");
+        String complemento = sc.nextLine();
 
-        Cliente novo_cliente = new Cliente(nome, cpf, dataNasc, telefone, endereco);
+
+        Endereco enderecoCliente = new Endereco();
+        Cliente novo_cliente = new Cliente(nome, cpf, dataNasc, telefone, enderecoCliente);
         lista_Cliente.add(novo_cliente);
 
     }
 
     public void editarCliente() {
         Scanner leia = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Lista de Funcionários:");
+        String novoNome, novoCpf, novaDataNasc, novoTelefone;
+
+        System.out.println("Lista de Clientes:");
         for (int i = 0; i < lista_Cliente.size(); i++) {
             Cliente cliente = lista_Cliente.get(i);
             System.out.println((i + 1) + ". " + cliente.getNome());
         }
 
-        System.out.print("Escolha o número do funcionário que deseja editar: ");
+        System.out.print("Escolha o número do cliente que deseja editar: ");
         int escolhaCliente = leia.nextInt();
 
         Cliente clienteSelecionado = lista_Cliente.get(escolhaCliente - 1);
 
         System.out.println("Editando Cliente: " + clienteSelecionado.getNome());
+
         System.out.print("Novo nome: ");
-        String novoNome = leia.nextLine();
+        novoNome = leia.nextLine();
         System.out.println();
 
         System.out.print("Novo CPF: ");
-        String novoCpf = leia.nextLine();
+        novoCpf = leia.nextLine();
         System.out.println();
 
         System.out.println("Data de Nascimento: ");
-        String novaDataNasc = leia.nextLine();
+        novaDataNasc = leia.nextLine();
         System.out.println();
-
-        // System.out.println("Endereço:");
-        // System.out.println("Digite seu cep: ");
 
         System.out.println("Telefone: ");
-        String novoTelefone = leia.nextLine();
+        novoTelefone = leia.nextLine();
         System.out.println();
+
+        System.out.println("Endereço");
+        System.out.println("Digite seu cep: ");
+        String cep = sc.nextLine();
+        
+        Endereco endereco = Endereco.getEnderecoByCep(cep);
+        
+        System.out.println("Rua: " + endereco.getLogradouro());
+        System.out.println("Bairro: " + endereco.getBairro());
+        System.out.println("Cidade: " + endereco.getLocalidade());
+        System.out.println("Estado: " + endereco.getUf());
+        
+        System.out.println("Número: ");
+        String numero = sc.nextLine();
+        endereco.setNumero(numero);
+        
+        System.out.println("Complemento: ");
+        String complemento = sc.nextLine();
 
         clienteSelecionado.setNome(novoNome);
         clienteSelecionado.setCpf(novoCpf);
+        clienteSelecionado.setEndereco(endereco);
         clienteSelecionado.setDataNasc(novaDataNasc);
         clienteSelecionado.setTelefone(novoTelefone);
 
