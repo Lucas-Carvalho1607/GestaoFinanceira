@@ -80,7 +80,8 @@ public class Menu_Funcionario {
         for (Cliente cliente : lista_Cliente) {
             System.out.println("Nome: " + cliente.getNome());
             System.out.println("CPF: " + cliente.getCpf());
-            System.out.println("Endereço:"  + cliente.getEndereco());
+            System.out.println("Cidade: "  + cliente.getEndereco().getLocalidade());
+            System.out.println("Bairro: " + cliente.getEndereco().getBairro());
             System.out.println("Telefone: " + cliente.getTelefone());
             System.out.println("\n");
         }

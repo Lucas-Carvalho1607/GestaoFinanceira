@@ -70,7 +70,8 @@ public class Menu_Gerente {
         for (Funcionario funcionario : lista_Funcionario) {
             System.out.println("Nome: " + funcionario.getNome());
             System.out.println("CPF: " + funcionario.getCpf());
-           System.out.println("Endereço: " + funcionario.getEndereco());
+            System.out.println("Cidade: " + funcionario.getEndereco().getLocalidade());
+            System.out.println("Bairro: " + funcionario.getEndereco().getBairro());
             System.out.println("Telefone: " + funcionario.getTelefone());
             System.out.println("Cargo: " + funcionario.getCargo());
             System.out.println("Salário: " + funcionario.getSalario());
@@ -113,7 +114,8 @@ public class Menu_Gerente {
         
         System.out.println("Complemento: ");
         String complemento = sc.nextLine();
-        
+        endereco.setComplemento(complemento);
+
         
         
         System.out.println("Selecione o cargo:");
@@ -124,11 +126,8 @@ public class Menu_Gerente {
             int escolhaCargo = leiaInt.nextInt();
             cargo = Cargo.values()[escolhaCargo];
         
-        Endereco enderecoFunc = new Endereco();
-        Funcionario novo_funcionario = new Funcionario(nome, cpf, dataNasc, telefone, enderecoFunc, ctps, cargo);
+        Funcionario novo_funcionario = new Funcionario(nome, cpf, dataNasc, telefone, endereco, ctps, cargo);
         lista_Funcionario.add(novo_funcionario);
-
-        
     }
     
     public void editarFuncionario() {
