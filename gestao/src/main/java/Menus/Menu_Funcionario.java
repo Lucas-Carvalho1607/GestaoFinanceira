@@ -117,10 +117,11 @@ public class Menu_Funcionario {
         
         System.out.println("Complemento: ");
         String complemento = sc.nextLine();
+        endereco.setComplemento(complemento);
 
 
-        Endereco enderecoCliente = new Endereco();
-        Cliente novo_cliente = new Cliente(nome, cpf, dataNasc, telefone, enderecoCliente);
+        
+        Cliente novo_cliente = new Cliente(nome, cpf, dataNasc, telefone, endereco);
         lista_Cliente.add(novo_cliente);
 
     }
@@ -177,6 +178,7 @@ public class Menu_Funcionario {
         
         System.out.println("Complemento: ");
         String complemento = sc.nextLine();
+        endereco.setComplemento(complemento);
 
         clienteSelecionado.setNome(novoNome);
         clienteSelecionado.setCpf(novoCpf);

@@ -5,7 +5,6 @@ import java.util.Scanner;
 import Classes.Endereco;
 import Classes.Gerente;
 import Enum.Cargo;
-import Enum.UnidadeFederal;
 import Menus.Menu_Cliente;
 import Menus.Menu_Funcionario;
 import Menus.Menu_Gerente;
